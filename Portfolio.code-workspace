@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.exclude": {
+			"**/.git": true,
+			"**/.gitignore": true,
+			"**/*.code-workspace": true
+		},
+		"search.exclude": {}
+	},
+}
