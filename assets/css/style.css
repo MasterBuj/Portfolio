@@ -795,6 +795,13 @@ section .container {
 /*--------------------------------------------------------------
 # Resume
 --------------------------------------------------------------*/
+.container .isolation {
+  padding: 20px;
+  border-radius: 15px;
+  background: #1F2122;
+  margin-bottom: 10px;
+}
+
 .resume .resume-title {
   font-size: 26px;
   font-weight: 700;
