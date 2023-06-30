@@ -234,6 +234,10 @@ Pre-loader Style
   padding-bottom: 6px;
 }
 
+#header span {
+  color: #18d26e;
+}
+
 #header img {
   padding: 0;
   margin: 0;
