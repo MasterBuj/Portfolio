@@ -223,9 +223,10 @@ Pre-loader Style
 }
 
 #header h2 {
-  font-size: 24px;
+  font-size: 1.5rem;
   margin-top: 20px;
   color: rgba(255, 255, 255, 0.8);
+  text-align: center;
 }
 
 #header h2 span {
@@ -1198,22 +1199,23 @@ section .container {
 
 .contact .social-links a {
   display: flex;
-  font-size: 30px;
+  font-size: 20px;
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
   border-radius: 15px;
   width: 170px;
   height: 145px;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
+  justify-content: space-evenly;
   flex-direction: column;
   margin: 17px;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-.contact a i {
+.contact .social-links a i {
   padding-right: 10px;
+  font-size: 30px;
+
 }
 
 .contact .social-links a:hover {
