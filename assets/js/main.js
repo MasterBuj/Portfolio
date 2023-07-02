@@ -113,21 +113,21 @@ $(document).ready(function () {
    */
 
   $(window).on('load', function () {
-    let portfolioContainer = select('.portfolio-container');
-    if (portfolioContainer.length) {
-      let portfolioIsotope = new Isotope(portfolioContainer[0], {
-        itemSelector: '.portfolio-item',
+    let projectContainer = select('.project-container');
+    if (projectContainer.length) {
+      let projectIsotope = new Isotope(projectContainer[0], {
+        itemSelector: '.project-item',
         layoutMode: 'fitRows'
       });
 
-      let portfolioFilters = select('#portfolio-flters li', true);
+      let projectFilters = select('#project-flters li', true);
 
-      on('click', '#portfolio-flters li', function (e) {
+      on('click', '#project-flters li', function (e) {
         e.preventDefault();
-        portfolioFilters.removeClass('filter-active');
+        projectFilters.removeClass('filter-active');
         $(this).addClass('filter-active');
 
-        portfolioIsotope.arrange({
+        projectIsotope.arrange({
           filter: $(this).attr('data-filter')
         });
       }, true);
@@ -136,10 +136,10 @@ $(document).ready(function () {
 
 
   /**
-   * Initiate portfolio details lightbox 
+   * Initiate project details lightbox 
    */
-  const portfolioDetailsLightbox = GLightbox({
-    selector: '.portfolio-details-lightbox',
+  const projectDetailsLightbox = GLightbox({
+    selector: '.project-details-lightbox',
     width: '90%',
     height: '90vh'
   });
