@@ -1,5 +1,6 @@
 
-(function () {
+$(document).ready(function () {
+
   "use strict";
 
 
@@ -7,146 +8,206 @@
    * Easy selector helper function
    */
   const select = (el, all = false) => {
-    el = el.trim()
+    el = el.trim();
     if (all) {
-      return [...document.querySelectorAll(el)]
+      return $(el);
     } else {
-      return document.querySelector(el)
+      return $(el).first();
     }
-  }
+  };
 
   /**
    * Easy event listener function
    */
   const on = (type, el, listener, all = false) => {
-    let selectEl = select(el, all)
+    let selectEl = select(el, all);
 
     if (selectEl) {
       if (all) {
-        selectEl.forEach(e => e.addEventListener(type, listener))
+        selectEl.each((index, element) => {
+          $(element).on(type, listener);
+        });
       } else {
-        selectEl.addEventListener(type, listener)
+        selectEl.on(type, listener);
       }
     }
-  }
-
-  // Page loading animation
-  window.onload = function () {
-    document.getElementById('js-preloader').className += ' loaded';
   };
 
+  // Page loading animation
+  $(window).on('load', function () {
+    $('#js-preloader').addClass('loaded');
+  });
 
 
-  /**
-   * Scrolls to an element with header offset
-   */
-  const scrollto = (el) => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })
-  }
+  $('nav a, .section-title a').on('click', function (event) {
+    event.preventDefault();
+
+    var target = $(this).attr('href');
+    if ($(target).length) {
+      var offset = $(target).offset().top - 80; // Adjust the value (20) to the desired space on top
+
+      $('html, body').animate({
+        scrollTop: offset
+      }, 'swing');
+    }
+  });
+
+  $(document).ready(function () {
+    var navLinks = $('#navbar a');
+    var sections = $('section, header');
+
+    function makeNavLinkActive() {
+      var scrollPosition = $(window).scrollTop();
+
+      sections.each(function () {
+        var sectionTop = $(this).offset().top;
+        var sectionHeight = $(this).outerHeight();
+
+        if (scrollPosition >= sectionTop - 50 && scrollPosition < sectionTop + sectionHeight - 50) {
+          var targetId = $(this).attr('id');
+
+          navLinks.removeClass('active');
+          navLinks.filter('[href="#' + targetId + '"]').addClass('active');
+        }
+      });
+    }
+
+    $(window).scroll(makeNavLinkActive);
+  });
+
+
+  // document.documentElement.scrollTop
+
+
+  let timeout;
+  window.addEventListener('scroll', function () {
+    clearTimeout(timeout);
+
+    timeout = setTimeout(function () {
+      let navbar = document.getElementById("navbar");
+      let sticky = navbar.offsetTop;
+
+      if (document.documentElement.scrollTop - 80 >= sticky) {
+        navbar.classList.add("stickyNav");
+      } else {
+        navbar.classList.remove("stickyNav");
+      }
+    }, 150);
+  });
+
+
+
+
+
+  // /**
+  //  * Scrolls to an element with header offset
+  //  */
+  // const scrollto = (el) => {
+  //   window.scrollTo({
+  //     top: 0,
+  //     behavior: 'smooth'
+  //   })
+  // }
 
   /**
    * Mobile nav toggle
    */
   on('click', '.mobile-nav-toggle', function (e) {
-    select('#navbar').classList.toggle('navbar-mobile')
-    this.classList.toggle('bi-list')
-    this.classList.toggle('bi-x')
-  })
-
-  /**
-   * Scrool with ofset on links with a class name .scrollto
-   */
-  on('click', '#navbar .nav-link', function (e) {
-    let section = select(this.hash)
-    if (section) {
-      e.preventDefault()
-
-      let navbar = select('#navbar')
-      let header = select('#header')
-      let sections = select('section', true)
-      let navlinks = select('#navbar .nav-link', true)
-
-      navlinks.forEach((item) => {
-        item.classList.remove('active')
-      })
-
-      this.classList.add('active')
-
-      if (navbar.classList.contains('navbar-mobile')) {
-        navbar.classList.remove('navbar-mobile')
-        let navbarToggle = select('.mobile-nav-toggle')
-        navbarToggle.classList.toggle('bi-list')
-        navbarToggle.classList.toggle('bi-x')
-      }
-
-      if (this.hash == '#header') {
-        header.classList.remove('header-top')
-        sections.forEach((item) => {
-          item.classList.remove('section-show')
-        })
-        return;
-      }
-
-      if (!header.classList.contains('header-top')) {
-        header.classList.add('header-top')
-        setTimeout(function () {
-          sections.forEach((item) => {
-            item.classList.remove('section-show')
-          })
-          section.classList.add('section-show')
-
-        }, 350);
-      } else {
-        sections.forEach((item) => {
-          item.classList.remove('section-show')
-        })
-        section.classList.add('section-show')
-      }
-
-      scrollto(this.hash)
-    }
-  }, true)
-
-  /**
-   * Activate/show sections on load with hash links
-   */
-  window.addEventListener('load', () => {
-    if (window.location.hash) {
-      let initial_nav = select(window.location.hash)
-
-      if (initial_nav) {
-        let header = select('#header')
-        let navlinks = select('#navbar .nav-link', true)
-
-        header.classList.add('header-top')
-
-        navlinks.forEach((item) => {
-          if (item.getAttribute('href') == window.location.hash) {
-            item.classList.add('active')
-          } else {
-            item.classList.remove('active')
-          }
-        })
-
-        setTimeout(function () {
-          initial_nav.classList.add('section-show')
-        }, 350);
-
-        scrollto(window.location.hash)
-      }
-    }
+    $('#navbar').toggleClass('navbar-mobile');
+    $(this).toggleClass('bi-list bi-x');
   });
+
+  // /**
+  //  * Scrool with ofset on links with a class name .scrollto
+  //  */
+  // on('click', '#navbar .nav-link', function (e) {
+  //   let section = select(this.hash)
+  //   if (section) {
+  //     e.preventDefault()
+
+  //     let navbar = select('#navbar')
+  //     let header = select('#header')
+  //     let sections = select('section', true)
+  //     let navlinks = select('#navbar .nav-link', true)
+
+  //     navlinks.forEach((item) => {
+  //       item.classList.remove('active')
+  //     })
+
+  //     this.classList.add('active')
+
+  //     if (navbar.classList.contains('navbar-mobile')) {
+  //       navbar.classList.remove('navbar-mobile')
+  //       let navbarToggle = select('.mobile-nav-toggle')
+  //       navbarToggle.classList.toggle('bi-list')
+  //       navbarToggle.classList.toggle('bi-x')
+  //     }
+
+  //     if (this.hash == '#header') {
+  //       header.classList.remove('header-top')
+  //       sections.forEach((item) => {
+  //         item.classList.remove('section-show')
+  //       })
+  //       return;
+  //     }
+
+  //     if (!header.classList.contains('header-top')) {
+  //       header.classList.add('header-top')
+  //       setTimeout(function () {
+  //         sections.forEach((item) => {
+  //           item.classList.remove('section-show')
+  //         })
+  //         section.classList.add('section-show')
+
+  //       }, 350);
+  //     } else {
+  //       sections.forEach((item) => {
+  //         item.classList.remove('section-show')
+  //       })
+  //       section.classList.add('section-show')
+  //     }
+
+  //     scrollto(this.hash)
+  //   }
+  // }, true)
+
+  // /**
+  //  * Activate/show sections on load with hash links
+  //  */
+  // window.addEventListener('load', () => {
+  //   if (window.location.hash) {
+  //     let initial_nav = select(window.location.hash)
+
+  //     if (initial_nav) {
+  //       let header = select('#header')
+  //       let navlinks = select('#navbar .nav-link', true)
+
+  //       header.classList.add('header-top')
+
+  //       navlinks.forEach((item) => {
+  //         if (item.getAttribute('href') == window.location.hash) {
+  //           item.classList.add('active')
+  //         } else {
+  //           item.classList.remove('active')
+  //         }
+  //       })
+
+  //       setTimeout(function () {
+  //         initial_nav.classList.add('section-show')
+  //       }, 350);
+
+  //       scrollto(window.location.hash)
+  //     }
+  //   }
+  // });
 
   /**
    * Porfolio isotope and filter
    */
-  window.addEventListener('load', () => {
+  $(window).on('load', function () {
     let portfolioContainer = select('.portfolio-container');
-    if (portfolioContainer) {
-      let portfolioIsotope = new Isotope(portfolioContainer, {
+    if (portfolioContainer.length) {
+      let portfolioIsotope = new Isotope(portfolioContainer[0], {
         itemSelector: '.portfolio-item',
         layoutMode: 'fitRows'
       });
@@ -155,33 +216,30 @@
 
       on('click', '#portfolio-flters li', function (e) {
         e.preventDefault();
-        portfolioFilters.forEach(function (el) {
-          el.classList.remove('filter-active');
-        });
-        this.classList.add('filter-active');
+        portfolioFilters.removeClass('filter-active');
+        $(this).addClass('filter-active');
 
         portfolioIsotope.arrange({
-          filter: this.getAttribute('data-filter')
+          filter: $(this).attr('data-filter')
         });
       }, true);
     }
-
   });
 
-  // /**
-  //  * Initiate portfolio lightbox 
-  //  */
-  // const portfolioLightbox = GLightbox({
-  //   selector: '.portfolio-lightbox'
-  // });
+  /**
+   * Initiate portfolio lightbox 
+   */
+  const portfolioLightbox = GLightbox({
+    selector: '.portfolio-lightbox'
+  });
 
-  // /**
-  //  * Initiate portfolio details lightbox 
-  //  */
-  // const portfolioDetailsLightbox = GLightbox({
-  //   selector: '.portfolio-details-lightbox',
-  //   width: '90%',
-  //   height: '90vh'
-  // });
+  /**
+   * Initiate portfolio details lightbox 
+   */
+  const portfolioDetailsLightbox = GLightbox({
+    selector: '.portfolio-details-lightbox',
+    width: '90%',
+    height: '90vh'
+  });
 
 })()
