@@ -43,7 +43,7 @@ $(function () {
       const projectEl = $("<section>").addClass("project-item");
       projectEl.html(`
         <div class="project-image">
-          <img src="assets/img/Projects/${images}" alt="project login/signup">
+          <img src="assets/img/projectsImg/${images}" alt="project login/signup">
         </div>
         <div class="description ${className}">
           <h4>${projectName}</h4>
