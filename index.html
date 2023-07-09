@@ -9,239 +9,157 @@
     <link
       href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
       rel="stylesheet">
-    <link href="assets/vendor/css/bootstrap.css" rel="stylesheet">
-    <link href="assets/vendor/css/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/vendor/css/bootstrap.min.css">
+
+
+    <link href="assets/vendor/docslider/docSlider.css" rel="stylesheet">
+
     <link href="assets/css/style.css" rel="stylesheet">
   </head>
 
   <body>
 
-    <!-- ***** Preloader Start ***** -->
+
     <div id="js-preloader" class="js-preloader">
-      <div class="preloader-inner">
-        <span class="dot"></span>
-        <div class="dots">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
+      <div class="loader"></div>
     </div>
-    <!-- ***** Preloader End ***** -->
 
-    <!-- MARK Header -->
-    <header id="header">
-      <div class="container">
-        <a href="index.html">
-          <img src="assets/img/meProfile.png" class="img-fluid profile" alt="Jerome Tolentino profile picture"
-            title="Jerome Tolentino Profile Picture">
-        </a>
-        <h1>Hello I'm <span>Jerome</span></h1>
-        <h2><span>web developer &amp; programmer</span> </h2>
+    <main class="main">
 
-        <nav id="navbar" class="navbar">
-          <ul>
-            <li><a class="nav-link active" data-text="Home" href="#header">Home</a></li>
-            <li><a class="nav-link" data-text="My Works" href="#project">My Works</a></li>
-            <li><a class="nav-link" data-text="Contact" href="#contact">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-    <!-- End Header -->
+      <!-- MARK Header -->
+      <section class="section" id="main-head">
+        <header id="header" class="header ">
+          <div class="container ">
+            <div>
+              <img src="assets/img/meProfile.png" class="img-fluid profile-image" alt="Jerome Tolentino profile picture"
+                title="Jerome Tolentino Profile Picture">
+            </div>
+            <div class="profile-name">
+              <h1>Hello I'm <span>Jerome</span></h1>
+              <h2><span>web developer &amp; programmer</span> </h2>
+            </div>
+            <!-- <nav id="navbar" class="navbar">
+              <ul>
+                <li><a class="nav-link active" data-text="Home" href="#header">Home</a></li>
+                <li><a class="nav-link" data-text="My Works" href="#project">My Works</a></li>
+                <li><a class="nav-link" data-text="Contact" href="#contact">Contact</a></li>
+              </ul>
+            </nav> -->
+            <div class="technologies-icon">
+              <img src="assets/img/svg skills/html.svg" class="skill" alt="html">
+              <img src="assets/img/svg skills/css.svg" class="skill" alt="css">
+              <img src="assets/img/svg skills/javascript.svg" class="skill" alt="javascript">
+              <img src="assets/img/svg skills/bootstrap.svg" class="skill" alt="bootstrap">
+              <img src="assets/img/svg skills/php-dark.svg" class="skill" alt="php">
+              <img src="assets/img/svg skills/figma-dark.svg" class="skill" alt="figma">
+            </div>
+          </div>
+        </header>
+      </section>
 
-
-    <!-- MARK Technologies Section -->
-    <section id="technologies" class="technologies">
-      <div class="technologies-me container">
-        <div class="section-title">
-          <p>Technologies</p>
+      <!-- MARK project Section -->
+      <!-- <section class="project-item section">
+        <div class="project-image">
+          <img src="assets/img/Projects/Slide1.JPG" alt="project login/signup">
         </div>
-        <div class="row">
-          <div class="col-lg-8 pt-4 pt-lg-0">
-            <div class="content">
-              <div class="technologies-icon">
-                <img src="assets/img/svg skills/html.svg" class="skill" alt="html">
-                <img src="assets/img/svg skills/css.svg" class="skill" alt="css">
-                <img src="assets/img/svg skills/javascript.svg" class="skill" alt="javascript">
-                <img src="assets/img/svg skills/bootstrap.svg" class="skill" alt="bootstrap">
-                <img src="assets/img/svg skills/php-dark.svg" class="skill" alt="php">
-                <img src="assets/img/svg skills/figma-dark.svg" class="skill" alt="figma">
+        <div class="description">
+          <h4>TEst</h4>
+
+          <div class="technologies">
+
+            <iconify-icon height="1.5em" icon="skill-icons:html"></iconify-icon>
+            <iconify-icon height="1.5em" icon="skill-icons:css"></iconify-icon>
+            <iconify-icon height="1.5em" icon="skill-icons:javascript"></iconify-icon>
+            <iconify-icon height="1.5em" icon="skill-icons:php-light"></iconify-icon>
+            <iconify-icon height="1.5em" icon="skill-icons:mysql-dark"></iconify-icon>
+
+          </div>
+
+          <p>The "Simple To-Do List" project is a web application developed using HTML, CSS, JavaScript, PHP, and
+            SQL.It provides
+            users with a platform to create and manage their to-do tasks with additional features such as task
+            descriptions and file
+            attachments.
+          </p>
+          <div class="media-icon">
+
+            <a href="#" class="icon">
+              Demo
+            </a>
+
+            <a href="#" class="icon">
+              Github
+            </a>
+
+          </div>
+        </div>
+      </section> -->
+
+
+      <!--MARK Contact Section ======= -->
+      <section id="contact" class="Contact section">
+        <div class="contact container page">
+          <div class="row">
+            <div class="section-title">
+              <h1>CONNECT WITH ME</h1>
+            </div>
+            <div class="pt-4 pt-lg-0 links">
+              <div class="social-links">
+                <a href="google.com" class="linkedin">
+                  <iconify-icon icon="mdi:linkedin" height="1.5em"></iconify-icon>
+                  linkedin
+                </a>
+                <a href="#header" class="email">
+                  <iconify-icon icon="mdi:email" height="1.5em"></iconify-icon>
+                  email
+                </a>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- End technologies Section -->
 
-    <!-- MARK project Section -->
-    <section id="project" class="project">
-      <div class="container">
-        <div class="section-title">
-          <h2><a href="#header">Home <i class="bi bi-chevron-right text-success"></i></a> project </h2>
-          <p>My Works</p>
-        </div>
-        <div class="row">
-          <div class="col-lg-12 d-flex justify-content-center">
-            <ul id="project-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-card">Recent</li>
-              <li data-filter=".filter-app">HTML</li>
-              <li data-filter=".filter-card">CSS/SASS</li>
-              <li data-filter=".filter-web">JS</li>
-              <li data-filter=".filter-web">NODE.JS</li>
-              <li data-filter=".filter-web">PHP</li>
-              <li data-filter=".filter-web">VB.NET</li>
-              <li data-filter=".filter-web">JAVA</li>
-            </ul>
-          </div>
-        </div>
-        <div class="row project-container">
-
-          <div class="col-lg-4 col-md-6 project-item filter-web">
-            <div class="project-wrap">
-              <a href="project-details.html" data-gallery="projectDetailsGallery" data-glightbox="type: external"
-                class="project-details-lightbox" title="project Details"><img src="assets/img/project/portfolio-9.jpg"
-                  class="img-fluid" alt="">
-                <div class="project-info">
-                  <h4>Web 123</h4>
-                  <p>Web 123</p>
+            <form action="forms/contact.php" method="post" role="form" class="mt-4">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input autocomplete="off" type="text" name="name" class="form-control" id="name"
+                    placeholder="Your Name" required>
                 </div>
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 project-item filter-web filter-app">
-            <div class="project-wrap">
-              <img src="assets/img/project/portfolio-2.jpg" class="img-fluid" alt="">
-              <div class="project-info">
-                <h4>Web 3</h4>
-                <p>Web</p>
-                <div class="project-links">
-                  <a href="assets/img/project/portfolio-2.jpg" data-gallery="projectGallery" class="project-lightbox"
-                    title="Web 3"><i class="bx bx-plus"></i></a>
-                  <a href="project-details.html" data-gallery="projectDetailsGallery" data-glightbox="type: external"
-                    class="project-details-lightbox" title="project Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 project-item filter-app">
-            <div class="project-wrap">
-              <img src="assets/img/project/portfolio-3.jpg" class="img-fluid" alt="">
-              <div class="project-info">
-                <h4>App 2</h4>
-                <p>App</p>
-                <div class="project-links">
-                  <a href="assets/img/project/portfolio-3.jpg" data-gallery="projectGallery" class="project-lightbox"
-                    title="App 2"><i class="bx bx-plus"></i></a>
-                  <a href="project-details.html" data-gallery="projectDetailsGallery" data-glightbox="type: external"
-                    class="project-details-lightbox" title="project Details"><i class="bx bx-link"></i></a>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input autocomplete="off" type="email" class="form-control" name="email" id="email"
+                    placeholder="Your Email" required>
                 </div>
               </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 project-item filter-card">
-            <div class="project-wrap">
-              <img src="assets/img/project/portfolio-4.jpg" class="img-fluid" alt="">
-              <div class="project-info">
-                <h4>Card 2</h4>
-                <p>Card</p>
-                <div class="project-links">
-                  <a href="assets/img/project/portfolio-4.jpg" data-gallery="projectGallery" class="project-lightbox"
-                    title="Card 2"><i class="bx bx-plus"></i></a>
-                  <a href="project-details.html" data-gallery="projectDetailsGallery" data-glightbox="type: external"
-                    class="project-details-lightbox" title="project Details"><i class="bx bx-link"></i></a>
-                </div>
+              <div class="form-group mt-3">
+                <input autocomplete="off" type="text" class="form-control" name="subject" id="subject"
+                  placeholder="Subject" required>
               </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 project-item filter-web">
-            <div class="project-wrap">
-              <img src="assets/img/project/portfolio-5.jpg" class="img-fluid" alt="">
-              <div class="project-info">
-                <h4>Web 2</h4>
-                <p>Web</p>
-                <div class="project-links">
-                  <a href="assets/img/project/portfolio-5.jpg" data-gallery="projectGallery" class="project-lightbox"
-                    title="Web 2"><i class="bx bx-plus"></i></a>
-                  <a href="project-details.html" data-gallery="projectDetailsGallery" data-glightbox="type: external"
-                    class="project-details-lightbox" title="project Details"><i class="bx bx-link"></i></a>
-                </div>
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
               </div>
-            </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary form-control">Send Message</button>
+              </div>
+            </form>
           </div>
-
-          <div class="col-lg-4 col-md-6 project-item filter-web">
-            <div class="project-wrap">
-              <a href="project-details.html" data-gallery="projectDetailsGallery" data-glightbox="type: external"
-                class="project-details-lightbox" title="project Details"><img src="assets/img/project/portfolio-9.jpg"
-                  class="img-fluid" alt="">
-                <div class="project-info">
-                  <h4>Web 123</h4>
-                  <p>Web 123</p>
-                </div>
-              </a>
-            </div>
-          </div>
-
+          <h6 class="footer">♥ Designed &amp; Built by <span>Jerome</span> ♥</h6>
         </div>
+      </section>
 
-      </div>
-    </section>
-    <!-- End project Section -->
+    </main>
 
-    <!--MARK Contact Section ======= -->
-    <section id="contact" class="Contact">
-      <div class="contact container">
-        <div class="row">
-          <div class="section-title">
-            <h1>CONNECT WITH ME</h1>
-          </div>
-          <div class="pt-4 pt-lg-0 links">
-            <div class="social-links">
-              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i>linkedin</a>
-              <a href="#" class="email"><i class="bi bi-envelope-at-fill"></i>email</a>
-            </div>
-          </div>
-
-          <form action="forms/contact.php" method="post" role="form" class="mt-4">
-            <div class="row">
-              <div class="col-md-6 form-group">
-                <input autocomplete="off" type="text" name="name" class="form-control" id="name" placeholder="Your Name"
-                  required>
-              </div>
-              <div class="col-md-6 form-group mt-3 mt-md-0">
-                <input autocomplete="off" type="email" class="form-control" name="email" id="email"
-                  placeholder="Your Email" required>
-              </div>
-            </div>
-            <div class="form-group mt-3">
-              <input autocomplete="off" type="text" class="form-control" name="subject" id="subject"
-                placeholder="Subject" required>
-            </div>
-            <div class="form-group mt-3">
-              <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-            </div>
-            <div class="text-center">
-              <button type="submit" class="btn btn-primary form-control">Send Message</button>
-            </div>
-          </form>
-        </div>
-        <h6 class="footer">♥ Designed &amp; Built by <span>Jerome</span> ♥</h6>
-      </div>
-    </section>
-    <!-- End Contact Section -->
-
+    <!-- MARK script -->
     <script src="assets/vendor/jquery/jquery-3.6.0.min.js"></script>
-    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/docslider/docSlider.js"></script>
+    <script src="assets/vendor/iconify/1.0.7_iconify-icon.min.js"></script>
+
+    <script type="text/javascript" src="assets/vendor/mouse/mouse.js"></script>
+
     <script src="assets/js/main.js"></script>
+    <script>
+      $(window).on('load', function () {
+        $('#js-preloader').addClass('loaded');
+      });
+    </script>
   </body>
 
 </html>
